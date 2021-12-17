@@ -1,1 +1,1 @@
-# searcher
+# Codewars Simple Clone
