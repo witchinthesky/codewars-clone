@@ -1,0 +1,16 @@
+body{
+    background-color: grey;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin: 150px;
+    color:red;
+}
+
+h1{
+    font-size: larger;
+    color: dodgerblue;
+}
+
+#box{
+ background-color: aliceblue;
+}
