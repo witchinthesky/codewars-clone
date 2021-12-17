@@ -5,4 +5,4 @@ Functionality:
 - Autorization & Registration 
 - Navigation 
 - Custom test 
-- The Bestest answer diagram 
+- The Bestest answer statistic
