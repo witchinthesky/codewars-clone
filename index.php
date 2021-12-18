@@ -9,26 +9,6 @@
     <title>Searcher</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <style>
-        html{
-            background-color: whitesmoke;
-        }
-        body{
-            background-color: whitesmoke;
-            padding: 20px 250px 20px 300px;
-            font-family: Arial;
-            box-shadow: dimgrey;
-        }
-        h1{
-            font-family: "Arial Black";
-            color: black;
-            font-size: 22px;
-        }
-        .tile {
-            display: flex;
-            align-items: center;
-        }
-    </style>
 </head>
 <body>
 

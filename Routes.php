@@ -1,13 +1,14 @@
 <?php 
 
 Route::set('index.php', function(){
-    SearchController::CreateView('home');
+    BaseController::CreateView('header');
+    BaseController::CreateView('index');
 });
 
 Route::set('search', function(){
-    SearchController::Search();
+
 });
 
 Route::set('artist', function(){
-   SearchController::ShowArtist($_GET["id"]);
+
 });
