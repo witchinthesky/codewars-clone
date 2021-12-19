@@ -36,10 +36,39 @@ class TestController
 
     public static function home(){
         BaseController::createView('header');
-        $parameters = array(
+        $conn = db_connect();
 
-        );
-        BaseController::createView('test', $parameters);
-        echo "<h1>test controller home</h1>";
+        // count all tests
+        $sql = "SELECT id, author, tags, title, rating FROM tests";
+
+        $tests = $conn->query($sql);
+        $tests = $tests->fetch_all(MYSQLI_ASSOC);
+
+        $conn->close();
+        BaseController::createView('home', $tests);
+    }
+
+    public static function quiz($id){
+
+        BaseController::createView('header');
+        $conn = db_connect();
+
+        // count all tests
+        $sql = "SELECT json FROM tests WHERE id='$id'";
+
+        $result = $conn->query($sql);
+        $result= $result->fetch_array(MYSQLI_ASSOC);
+        $json_path = $result['json'];
+
+        if(!file_exists("uploads".DIRECTORY_SEPARATOR.$json_path)){
+            return;
+        }
+
+        $json = file_get_contents("uploads".DIRECTORY_SEPARATOR.$json_path);
+        $json = json_decode($json, true);
+
+        BaseController::createView('quiz', $json);
+
+        $conn->close();
     }
 }

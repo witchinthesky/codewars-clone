@@ -33,3 +33,7 @@ Route::set('user-stats', function(){
 
     UserController::get_statistic();
 });
+
+Route::set('quiz', function (){
+   TestController::quiz($_GET['id']);
+});
