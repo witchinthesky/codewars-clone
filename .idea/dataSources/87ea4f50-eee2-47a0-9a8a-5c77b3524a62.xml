@@ -1187,7 +1187,7 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <NotNull>1</NotNull>
       <Collation>utf8mb4_bin</Collation>
     </column>
-    <column id="339" parent="334" name="autor">
+    <column id="339" parent="334" name="author">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1197,43 +1197,53 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
       <DataType>enum(&apos;training&apos;, &apos;easy&apos;, &apos;moderate&apos;, &apos;hard&apos;, &apos;insane&apos;)|0e</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="341" parent="334" name="PRIMARY">
+    <column id="341" parent="334" name="title">
+      <Position>5</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="342" parent="334" name="rating">
+      <Position>6</Position>
+      <DataType>int(5)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="343" parent="334" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="342" parent="335" name="id">
+    <column id="344" parent="335" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="343" parent="335" name="name">
+    <column id="345" parent="335" name="name">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="344" parent="335" name="email">
+    <column id="346" parent="335" name="email">
       <Position>3</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="345" parent="335" name="password">
+    <column id="347" parent="335" name="password">
       <Position>4</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="346" parent="335" name="all-test">
+    <column id="348" parent="335" name="all-test">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="335" name="success-test">
+    <column id="349" parent="335" name="success-test">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="348" parent="335" name="PRIMARY">
+    <key id="350" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
