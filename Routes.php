@@ -1,14 +1,30 @@
 <?php 
 
 Route::set('index.php', function(){
-    BaseController::CreateView('header');
-    BaseController::CreateView('index');
+    echo $_SESSION['name'];
+    if (UserController::user() != false)
+        TestController::home();
+    else
+        UserController::login();
+
 });
 
-Route::set('search', function(){
-
+Route::set('login', function(){
+    echo $_SESSION['name'];
+    UserController::login();
 });
 
-Route::set('artist', function(){
+Route::set('register', function(){
+    echo $_SESSION['name'];
+    UserController::register();
+});
 
+Route::set('logout', function(){
+    echo $_SESSION['name'];
+    UserController::logout();
+});
+
+Route::set('new-test', function(){
+    echo $_SESSION['name'];
+    TestController::create();
 });

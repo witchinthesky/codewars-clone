@@ -11,7 +11,7 @@
         *   @return void 
         */
 
-        public static function CreateView(string $view_name, array $data = []){
+        public static function createView(string $view_name, array $data = []){
 
             if(file_exists("./views/$view_name.php")){
                 require("./views/$view_name.php");

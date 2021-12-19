@@ -6,9 +6,11 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Searcher</title>
+    <title>TestWars</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+          integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+          crossorigin="anonymous">
 </head>
 <body>
 
@@ -22,19 +24,15 @@
             else if(file_exists('./controllers/'.$class_name.'.php')){
                 require_once './controllers/'.$class_name.'.php';
             }
+            require_once './classes/function.php';
         }
         spl_autoload_register('autoload');
 
-        if(!isset($_SESSION['session'])){
-            $session = new Session();
-            $_SESSION['session'] = $session;
-        }
+        session_start();
         ?>
 
-        <?php
-        require_once('Routes.php');
+        <?php require_once('Routes.php'); ?>
 
-        ?>
     </body>
 </html>
 
