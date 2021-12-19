@@ -26,7 +26,7 @@ class TestController
         // insert new test
         $sql = "INSERT INTO tests (title, rating, tags, json, author) VALUES('$title','$rating','$level', '$file_name', '$author')";
         if($conn->query($sql) === TRUE) {
-            echo "created";
+           // echo "created";
             header('Location: /');
         }
         else echo "error: $sql - $conn->error";

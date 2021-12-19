@@ -15,7 +15,7 @@
                 <div class="buttons">
                     <?php
                         if(UserController::user() != false){
-                            echo "<a class=\"button is-black\" href=\"stats\">
+                            echo "<a class=\"button is-black\" href=\"user-stats\">
                                        <i class=\"fas fa-user fa-lg\"></i>
                                   </a>
                                   <a class=\"button is-light\" href=\"logout\">Log out</a>";

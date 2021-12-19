@@ -7,8 +7,8 @@
         public static function login(){
 
             if (!isset($_POST['submit'])) {
-                BaseController::CreateView('header');
-                BaseController::CreateView('login');
+                BaseController::createView('header');
+                BaseController::createView('login');
                 //   echo 'just view';
                 return;
             }
@@ -40,8 +40,8 @@
 
         public static function register(){
             if (!isset($_POST['submit'])){
-                BaseController::CreateView('header');
-                BaseController::CreateView('register');
+                BaseController::createView('header');
+                BaseController::createView('register');
                 return;
             }
 
@@ -73,7 +73,6 @@
             header('Location: /');
         }
 
-
         /*
          * @param void
          * @return user if logged, false if no
@@ -81,5 +80,41 @@
 
         public static function user(){
             return isset($_SESSION['name']) ? $_SESSION['name'] : false;
+        }
+
+        public static function get_statistic(){
+
+            BaseController::createView('header');
+
+            $user = UserController::user();
+
+            $conn = db_connect();
+
+            // count all tests
+            $sql = "SELECT * FROM tests";
+            $all_test_num = $conn->query($sql)->num_rows;
+
+            // get count test autor
+            $sql = "SELECT * FROM tests WHERE author='$user'";
+            $created = $conn->query($sql)->num_rows;
+
+            $sql = "SELECT tests FROM users WHERE name='$user'";
+            $all_test = $conn->query($sql)->fetch_array()['tests'];
+
+            $sql = "SELECT successtest FROM users WHERE name='$user'";
+            $success = $conn->query($sql)->fetch_array()['successtest'];
+            $wrong = $all_test - $success;
+
+            // parameters
+            $parametres = array(
+                'success' => $success,
+                'created' => $created,
+                'created_max' => $all_test_num,
+                'wrong' => $wrong,
+                'tests_max' => $all_test,
+            );
+
+            BaseController::createView('user-stats', $parametres);
+
         }
     }

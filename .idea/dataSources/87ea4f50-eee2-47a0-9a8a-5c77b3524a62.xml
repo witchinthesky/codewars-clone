@@ -1173,77 +1173,74 @@ test\\_%|schema||&apos;&apos;||UPDATE|G</Grants>
     </user>
     <table id="334" parent="7" name="tests"/>
     <table id="335" parent="7" name="users"/>
-    <check id="336" parent="334" name="json">
-      <Predicate>json_valid(`json`)</Predicate>
-    </check>
-    <column id="337" parent="334" name="id">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="338" parent="334" name="json">
-      <Position>2</Position>
-      <DataType>longtext|0s</DataType>
-      <NotNull>1</NotNull>
-      <Collation>utf8mb4_bin</Collation>
-    </column>
-    <column id="339" parent="334" name="author">
-      <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="340" parent="334" name="tags">
-      <Position>4</Position>
-      <DataType>enum(&apos;training&apos;, &apos;easy&apos;, &apos;moderate&apos;, &apos;hard&apos;, &apos;insane&apos;)|0e</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="341" parent="334" name="title">
-      <Position>5</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="342" parent="334" name="rating">
-      <Position>6</Position>
-      <DataType>int(5)|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <key id="343" parent="334" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="344" parent="335" name="id">
+    <column id="336" parent="334" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="345" parent="335" name="name">
+    <column id="337" parent="334" name="author">
       <Position>2</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="346" parent="335" name="email">
+    <column id="338" parent="334" name="tags">
+      <Position>3</Position>
+      <DataType>enum(&apos;training&apos;, &apos;easy&apos;, &apos;moderate&apos;, &apos;hard&apos;, &apos;insane&apos;)|0e</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="339" parent="334" name="title">
+      <Position>4</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="340" parent="334" name="rating">
+      <Position>5</Position>
+      <DataType>int(100)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="341" parent="334" name="json">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="342" parent="334" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="343" parent="335" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="344" parent="335" name="name">
+      <Position>2</Position>
+      <DataType>varchar(25)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="345" parent="335" name="email">
       <Position>3</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="335" name="password">
+    <column id="346" parent="335" name="password">
       <Position>4</Position>
       <DataType>varchar(25)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="335" name="all-test">
+    <column id="347" parent="335" name="tests">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="335" name="success-test">
+    <column id="348" parent="335" name="successtest">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="350" parent="335" name="PRIMARY">
+    <key id="349" parent="335" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
