@@ -71,4 +71,64 @@ class TestController
 
         $conn->close();
     }
+
+    public static function result($id){
+
+        // print_r($_POST);
+
+        $answers = $_POST;
+
+        BaseController::createView('header');
+        $conn = db_connect();
+
+        // count all tests
+        $sql = "SELECT json FROM tests WHERE id='$id'";
+
+        $result = $conn->query($sql);
+        $result= $result->fetch_array(MYSQLI_ASSOC);
+        $json_path = $result['json'];
+
+        if(!file_exists("uploads".DIRECTORY_SEPARATOR.$json_path)){
+            return;
+        }
+
+        $json = file_get_contents("uploads".DIRECTORY_SEPARATOR.$json_path);
+        $json = json_decode($json, true);
+
+
+        BaseController::createView('result', array(
+            "test" => $json,
+            "answer" => $answers
+        ));
+
+        $conn->close();
+    }
+
+    public static function statistic(){
+
+        BaseController::createView('header');
+
+        $conn = db_connect();
+
+        $sql = "SELECT * FROM 
+                (SELECT author as name, COUNT(title) as created FROM tests GROUP BY author) t2
+                RIGHT JOIN
+                (SELECT name, tests, successtest FROM users) t1 
+                ON t1.name = t2.name";
+
+        $result = $conn->query($sql);
+        $result= $result->fetch_all(MYSQLI_ASSOC);
+
+        // save information at file
+        $file_path = "statistic".DIRECTORY_SEPARATOR."stats.json";
+        if (!file_exists($file_path)){
+            $file = fopen($file_path, "a+");
+            file_put_contents($file_path, json_encode($result, JSON_FORCE_OBJECT));
+        }
+        else{
+            file_put_contents($file_path, json_encode($result, JSON_FORCE_OBJECT));
+        }
+
+        BaseController::createView('stats');
+    }
 }

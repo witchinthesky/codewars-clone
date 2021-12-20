@@ -1,5 +1,6 @@
 <div class="container is-max-widescreen">
     <div class="notification">
+        <form action="result?id=<?=$_GET['id']?>" method="post">
         <?php
             for($i = 0; $i < $data['total']; $i++){
                 echo"
@@ -9,22 +10,22 @@
 
                         for($j = 0; $j < count($data['tests'][$i]['answers']); $j++){
                             echo "<label class='radio'>
-                                    <input type='radio' name='$i' value='$j'>
+                                    <input class='radio-$i' type='radio' name='$i' value='$j'>
                                     {$data['tests'][$i]['answers'][$j]}</label>
                                     <br>";
                         }
 
                 echo"</div><br>";
                         echo"<div class='buttons has-addons'>
-                                <button class='button is-rounded is-success is-outlined' onclick='openPrevious($i)'";
+                                <button type='button' class='button is-rounded is-success is-outlined' onclick='openPrevious($i)'";
                             echo $i == 0 ? "disabled " : " ";
                         echo">
                                     Previous 
                                 </button>
-                                <button class='button is-rounded is-outlined' onclick='skipQuestion($i)'>
+                                <button type='button' class='button is-rounded is-outlined' onclick='skipQuestion($i)'>
                                     Skip
                                 </button>
-                                <button class='button is-rounded is-success is-outlined'";
+                                <button type='button' class='button is-rounded is-success is-outlined'";
                         echo $i == $data['total'] - 1 ? "disabled " : " ";
                         echo "onclick='openNext($i)'>
                                     Next 
@@ -36,6 +37,10 @@
                 ";
             }
         ?>
+           <button class="button is-success" type="submit" name="submit">
+                View Answers
+            </button>
+        </form>
     </div>
 </div>
 
@@ -52,7 +57,11 @@
         for (var i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
+        var radio = document.getElementsByClassName("radio-"+ q_index);
+        for (var i = 0; i < radio.length; i++) {
+            radio[i].disabled = true;
+            radio[i].checked = false;
+        }
         document.getElementById(q_index + 1).style.display = "block";
     }
 
@@ -71,7 +80,8 @@
         for (var i = 0; i < tabcontent.length; i++) {
             tabcontent[i].style.display = "none";
         }
-
         document.getElementById(q_index - 1).style.display = "block";
     }
 </script>
+
+</body></html>

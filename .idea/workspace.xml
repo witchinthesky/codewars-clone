@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="97000821-a2aa-4bf2-a49c-a557dfff5138" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/statistic/stats.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/result.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/stats.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/Routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controllers/TestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/TestController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/test.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/new-test.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/new-test.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/quiz.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/quiz.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/user-stats.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/user-stats.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +98,10 @@
       <workItem from="1639743770031" duration="6203000" />
       <workItem from="1639752410999" duration="2262000" />
       <workItem from="1639818979742" duration="17262000" />
-      <workItem from="1639900096954" duration="31969000" />
+      <workItem from="1639900096954" duration="36005000" />
+      <workItem from="1639943970292" duration="5878000" />
+      <workItem from="1639983002676" duration="5237000" />
+      <workItem from="1639988331825" duration="2723000" />
     </task>
     <servers />
   </component>
