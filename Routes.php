@@ -46,13 +46,6 @@ Route::set('stats', function(){
     TestController::statistic();
 });
 
-Route::set('getstat', function (){
-   $json = json_decode(file_get_contents("statistic/stats.json"));
-   $responce = array();
-   foreach($json as $item){
-       foreach($item as $key => $value){
-           $responce[$key][] = $value == null ? 0 : $value;
-       }
-   }
-   echo json_encode($responce);
+Route::set('getstat.json', function (){
+   echo file_get_contents("statistic/stats.json");
 });

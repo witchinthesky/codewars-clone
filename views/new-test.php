@@ -19,9 +19,10 @@
                 "answer 3",
                 "answer 4"
             ],
-            "index": "index of right answer"
+            "index": index of right answer
         },
-    ]
+    ],
+    "total": questions count
 }
 </pre>
                 </div>

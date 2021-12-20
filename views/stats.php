@@ -2,19 +2,18 @@
 <div class="container is-max-widescreen">
     <canvas id="myChart" width="max" height="max"></canvas>
     <br>
-    <button class="button is-success">
+    <a class="button is-success" href="getstat.json" download>
         Download data
-    </button>
+    </a>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+
 <script>
 
-</script>
-<script>
     let temp = null;
-
-    fetch("./getstat")
+    fetch("./getstat.json")
     .then(function(response) {
         return response.json();
         })
@@ -30,13 +29,13 @@ function drawStats(json) {
     console.log(temp['name']);
     console.log([12, 12, 12]);
     const ctx = document.getElementById('myChart');
-    const myChart = new Chart(ctx, {
+    new Chart(ctx, {
         type: 'line',
         data: {
-                labels: json['name'],
+                labels: Object.values(json['name']),
                 datasets: [{
                     label: 'Passed Tests',
-                    data: json['successtest'],
+                    data: Object.values(json['successtest']),
                     backgroundColor: [
                         'rgba(35, 209, 96, 0.2)',
                     ],
@@ -47,7 +46,7 @@ function drawStats(json) {
                 },
                 {
                     label: 'Created Tests',
-                    data: json['created'],
+                    data: Object.values(json['created']),
                     backgroundColor: [
                         'rgba(54, 54, 54, 0.2)',
                     ],
@@ -58,7 +57,7 @@ function drawStats(json) {
                 },
                 {
                     label: 'Submitted Test',
-                    data: json['tests'],
+                    data: Object.values(json['tests']),
                     backgroundColor: [
                         'rgba(50, 115, 220, 0.2)',
                     ],

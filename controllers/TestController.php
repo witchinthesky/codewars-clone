@@ -74,8 +74,6 @@ class TestController
 
     public static function result($id){
 
-        // print_r($_POST);
-
         $answers = $_POST;
 
         BaseController::createView('header');
@@ -95,10 +93,28 @@ class TestController
         $json = file_get_contents("uploads".DIRECTORY_SEPARATOR.$json_path);
         $json = json_decode($json, true);
 
+        $right_answers = array();
+        foreach($json['tests'] as $item){
+            $right_answers[] = $item['index'];
+        }
+
+        $rcount = count(array_intersect_assoc($answers, $right_answers));
+
+        $value = $rcount >= count($right_answers)/2 ? 1 : 0;
+
+        $name = UserController::user();
+        $sql = "UPDATE users 
+                SET tests = tests + 1, 
+                successtest = successtest + $value
+                WHERE name='$name'";
+
+        $conn->query($sql);
 
         BaseController::createView('result', array(
             "test" => $json,
-            "answer" => $answers
+            "answer" => $answers,
+            "rcount" => $rcount,
+            "message" => $rcount >= count($right_answers)/2 ? "Success" : "Fail",
         ));
 
         $conn->close();
@@ -119,15 +135,19 @@ class TestController
         $result = $conn->query($sql);
         $result= $result->fetch_all(MYSQLI_ASSOC);
 
+        $responce = array();
+        foreach($result as $item){
+            foreach($item as $key => $value){
+                $responce[$key][] = $value == null ? '0' : $value;
+            }
+        }
+
         // save information at file
         $file_path = "statistic".DIRECTORY_SEPARATOR."stats.json";
-        if (!file_exists($file_path)){
-            $file = fopen($file_path, "a+");
-            file_put_contents($file_path, json_encode($result, JSON_FORCE_OBJECT));
-        }
-        else{
-            file_put_contents($file_path, json_encode($result, JSON_FORCE_OBJECT));
-        }
+
+        file_put_contents($file_path, json_encode($responce, JSON_FORCE_OBJECT));
+
+
 
         BaseController::createView('stats');
     }
