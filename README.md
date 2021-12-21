@@ -1,12 +1,5 @@
 # Codewars Simple Clone
 
-Functionality: 
-
-- Autorization & Registration 
-- Navigation 
-- Custom test 
-- The Bestest answer statistic
-
 ТЗ:
 1. ~~Авторизація~~ та ~~послідовний перехід між питаннями~~ 
 2. ~~Навігація (пропуск питання, повернення на попереднє, перехід до наступного...)~~ 
