@@ -1,6 +1,6 @@
 
 <div class="container is-max-widescreen">
-    <canvas id="myChart" width="max" height="max"></canvas>
+    <canvas id="myChart"></canvas>
     <br>
     <a class="button is-success" href="getstat.json" download>
         Download data

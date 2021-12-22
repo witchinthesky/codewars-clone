@@ -23,8 +23,11 @@
 
             $result = $conn->query($sql);
 
-            if($conn->query($sql) === False)
-                echo "error: $sql - $conn->error";
+            if($conn->query($sql) == false)
+                echo "error bool: $sql - $conn->error";
+
+
+            echo $result->num_rows;
 
             if($result->num_rows == 1) {
                 // echo "logined";
@@ -32,7 +35,7 @@
                 $_SESSION['name'] = $name['name'];
                 header('Location: /');
             }
-            else echo "error: $sql - $conn->error";
+            else echo "error fetch: $sql - $conn->error";
 
             $conn->close();
 
@@ -58,7 +61,7 @@
             if($result->num_rows == 1)
                 return;
             $sql = "INSERT INTO users (name, email, password) VALUES('$name','$email','$password')";
-            if($conn->query($sql) === TRUE) {
+            if($conn->query($sql) == true) {
                 // echo "new user created successfully";
                 header('Location: /');
             }
